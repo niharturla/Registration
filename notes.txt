@@ -1,0 +1,15 @@
+Routing:
+
+When the user clicks the register on homepage, it should direct user to the registration page
+Registration Page->Browsing Component
+
+When the user clicks see schedule, it should show the schedule of the classes
+See schedule->class planner
+
+When the user clicks on seats taken, it should show the number of attendees logged in the system
+(seats taken->250-x)
+
+When user clicks the submit button, verify for validation then show the success page
+Submit->success
+
+When the user clicks the return page, go back to the homepage
