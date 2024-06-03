@@ -1,0 +1,69 @@
+<h1>PPC Department of Charitable Gaming Training Application</h1>
+<h2>Add a Registration</h2>
+<div *ngIf="form && form.invalid">
+    <div>
+        <input type="text" formControlName="orgLicenseNum" />
+        <small *ngIf="(this.isSubmitted) && (form.get('orgLicenseNum').invalid) && (form.get('orgLicenseNum').dirty || form.get('orgLicenseNum').touched)">
+            Please enter a valid Organization license number!
+        </small>
+    </div>
+    <div>
+        <input type="text" formControlName="orgTitleNum" />
+        <small *ngIf="form.get('orgTitleNum').invalid && (form.get('orgTitleNum').dirty || form.get('orgTitleNum').touched)">
+            Organization Title Number is required!
+        </small>
+    </div>
+
+    <div>
+        <input type="text" formControlName="firstName" />
+        <small *ngIf="form.get('firstName').invalid && (form.get('firstName').dirty || form.get('firstName').touched)">
+            First Name is required!
+        </small>
+    </div>
+
+    <div>
+        <input type="text" formControlName="lastName" />
+        <small *ngIf="form.get('lastName').invalid && (form.get('lastName').dirty || form.get('lastName').touched)">
+            Last Name is required!
+        </small>
+    </div>
+
+    <div>
+        <input type="text" formControlName="phone" />
+        <small *ngIf="form.get('phone').errors && (form.get('phone').dirty || form.get('phone').touched)">
+            <ng-container *ngIf="form.get('phone').errors.required">
+                Phone number is required!
+            </ng-container>
+            <ng-container *ngIf="form.get('phone').errors.pattern">
+                Please enter a valid phone number!
+            </ng-container>
+        </small>
+    </div>
+
+    <div>
+        <input type="text" formControlName="email" />
+        <small *ngIf="form.get('email').errors && (form.get('email').dirty || form.get('email').touched)">
+            <ng-container *ngIf="form.get('email').errors.required">
+                Email is required!
+            </ng-container>
+            <ng-container *ngIf="form.get('email').errors.email">
+                Please enter a valid email!
+            </ng-container>
+        </small>
+    </div>
+
+    <div>
+        <input type="number" formControlName="attendees" />
+        <small *ngIf="form.get('attendees').errors && (form.get('attendees').dirty || form.get('attendees').touched)">
+            <ng-container *ngIf="form.get('attendees').errors.required">
+                Number of attendees is required!
+            </ng-container>
+            <ng-container *ngIf="form.get('attendees').errors.pattern">
+                Please enter a valid number of attendees!
+            </ng-container>
+        </small>
+    </div>
+    <button type="submit" (click)="onSubmit()">Submit</button>
+    <button type="button" (click)="onReturn()">Return</button>
+</div>
+<app-form-component></app-form-component>
